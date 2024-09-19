@@ -1,3 +1,5 @@
+import React from "react";
+
 const DarkMode = () => {
   return <div>DarkMode</div>;
 };
