@@ -18,7 +18,7 @@ const LinksDropDown = () => {
       <DropdownMenuContent className="mt-2" align="center" sideOffset={10}>
         {links.map((link) => {
           return (
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem key={link.href} asChild>
               <Link href={link.href}>{link.label}</Link>
             </DropdownMenuItem>
           );
