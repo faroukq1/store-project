@@ -1,4 +1,4 @@
-const FeaturedProduct = () => {
+const FeaturedProduct = async () => {
   return <div>FeaturedProduct</div>;
 };
 
