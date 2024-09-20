@@ -3,12 +3,7 @@ import { Button } from "../ui/button";
 
 const FavoriteToggleButton = ({ productID }: { productID: string }) => {
   return (
-    <Button
-      size="icon"
-      variant="outline"
-      className="p-2 cursor-pointer"
-      onClick={() => console.log(productID)}
-    >
+    <Button size="icon" variant="outline" className="p-2 cursor-pointer">
       <FaHeart />
     </Button>
   );
