@@ -1,3 +1,4 @@
+import ProductContainer from "@/components/products/ProductContainer";
 import React from "react";
 
 const ProductPage = ({
@@ -10,7 +11,7 @@ const ProductPage = ({
 }) => {
   const layout = searchParams.layout || "grid";
   const search = searchParams.search || "";
-  return <div>ProductPage</div>;
+  return <ProductContainer layout={layout} search={search} />;
 };
 
 export default ProductPage;

@@ -11,7 +11,7 @@ const ProductGrid = async ({ products }: { products: Product[] }) => {
         const { id, name, price, image } = product;
         const dollarAmount = formatCurrency(price);
         return (
-          <article className="group relative">
+          <article key={id} className="group relative">
             <Link href={`/products/${id}`}>
               <Card className="transform group-hover:shadow-xl transition-shadow duration-500">
                 <CardContent className="p-4">
