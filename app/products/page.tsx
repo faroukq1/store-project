@@ -1,6 +1,15 @@
 import React from "react";
 
-const ProductPage = () => {
+const ProductPage = ({
+  searchParams,
+}: {
+  searchParams: {
+    layout?: string;
+    search?: string;
+  };
+}) => {
+  const layout = searchParams.layout || "grid";
+  const search = searchParams.search || "";
   return <div>ProductPage</div>;
 };
 
