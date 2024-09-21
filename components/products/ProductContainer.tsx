@@ -16,6 +16,7 @@ const ProductContainer = async ({
   const products = await fetchAllProduct();
   const totalProducts = products.length;
   const searchTerm = search ? `&search=${search}` : "";
+
   return (
     <>
       {/* HEADER */}
@@ -30,7 +31,7 @@ const ProductContainer = async ({
               size="icon"
               asChild
             >
-              <Link href={`/product/layout=grid${searchTerm}`}>
+              <Link href={`/products?layout=grid${searchTerm}`}>
                 <LuLayoutGrid />
               </Link>
             </Button>
@@ -40,7 +41,7 @@ const ProductContainer = async ({
               size="icon"
               asChild
             >
-              <Link href={`/product/layout=list${searchTerm}`}>
+              <Link href={`/products?layout=list${searchTerm}`}>
                 <LuLayoutList />
               </Link>
             </Button>

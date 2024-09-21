@@ -1,5 +1,4 @@
 import ProductContainer from "@/components/products/ProductContainer";
-import React from "react";
 
 const ProductPage = ({
   searchParams,
@@ -9,6 +8,7 @@ const ProductPage = ({
     search?: string;
   };
 }) => {
+  console.log(searchParams);
   const layout = searchParams.layout || "grid";
   const search = searchParams.search || "";
   return <ProductContainer layout={layout} search={search} />;
