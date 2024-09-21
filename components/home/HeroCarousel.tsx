@@ -12,7 +12,7 @@ import {
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
 
-const carouselImages = [image1, image2, image3, image4];
+const carouselImages = [image2, image1, image3, image4];
 
 const HeroCarousel = () => {
   return (
