@@ -15,7 +15,7 @@ const Hero = () => {
           effortlessly and confidently both online and in-store.
         </p>
         <Button asChild size="lg" className="mt-10">
-          <Link href="/product">Our Product</Link>
+          <Link href="/products">Our Product</Link>
         </Button>
       </div>
       <HeroCarousel />
