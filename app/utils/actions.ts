@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import db from "../utils/db";
 
 export const fetchFeaturedProducts = async () => {
@@ -22,4 +23,16 @@ export const fetchAllProduct = async ({ search = "" }: { search: string }) => {
     },
   });
   return allProducts;
+};
+
+export const fetchSingleProduct = async (productID: string) => {
+  const product = await db.product.findUnique({
+    where: {
+      id: productID,
+    },
+  });
+
+  if (product === null) redirect("/products");
+
+  return product;
 };
