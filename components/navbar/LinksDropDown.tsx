@@ -10,6 +10,9 @@ import {
 import Link from "next/link";
 import UserIcon from "./UserIcon";
 import { Button } from "../ui/button";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
+import SignOutLink from "./SignOutLink";
 
 const LinksDropDown = () => {
   return (
@@ -21,13 +24,33 @@ const LinksDropDown = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2" align="center" sideOffset={10}>
-        {links.map((link) => {
-          return (
-            <DropdownMenuItem key={link.href} asChild>
-              <Link href={link.href}>{link.label}</Link>
-            </DropdownMenuItem>
-          );
-        })}
+        <SignedOut>
+          <DropdownMenuItem>
+            <SignInButton mode="modal">
+              <span className="w-full text-left">Login</span>
+            </SignInButton>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignUpButton mode="modal">
+              <span className="w-full text-left">Register</span>
+            </SignUpButton>
+          </DropdownMenuItem>
+        </SignedOut>
+
+        <SignedIn>
+          {links.map((link) => {
+            return (
+              <DropdownMenuItem key={link.href} asChild>
+                <Link href={link.href}>{link.label}</Link>
+              </DropdownMenuItem>
+            );
+          })}
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignOutLink />
+          </DropdownMenuItem>
+        </SignedIn>
       </DropdownMenuContent>
     </DropdownMenu>
   );
