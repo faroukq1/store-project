@@ -1,4 +1,3 @@
-import { Value } from "@radix-ui/react-select";
 import { FaStar } from "react-icons/fa";
 
 const ProductRating = ({ productID }: { productID: string }) => {
@@ -10,6 +9,7 @@ const ProductRating = ({ productID }: { productID: string }) => {
   return (
     <span className={className}>
       <FaStar className="w-3 h-3" /> {rating} {countValue}
+      <span className="hidden">{productID}</span>
     </span>
   );
 };
