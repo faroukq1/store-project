@@ -4,8 +4,13 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
 import Providers from "./providers";
-import { ClerkProvider } from "@clerk/nextjs";
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 export const metadata: Metadata = {
   title: "Nest Store",
   description: "store build with next js",
