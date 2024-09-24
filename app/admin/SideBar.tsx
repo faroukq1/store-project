@@ -11,7 +11,7 @@ const SideBar = () => {
     <aside>
       {adminLinks.map(({ href, label }) => {
         const isActivePage = pathname === href;
-        const variant = isActivePage ? "secondary" : "ghost";
+        const variant = isActivePage ? "default" : "ghost";
         return (
           <Button
             key={href}
