@@ -15,7 +15,19 @@ const FormInput = ({
   defaultValue,
   placeHolder,
 }: formInputProps) => {
-  return <div>FormInput</div>;
+  return (
+    <div className="mb-2">
+      <Label htmlFor={name}>{label || name}</Label>
+      <Input
+        id={name}
+        name={name}
+        type={type}
+        defaultValue={defaultValue}
+        placeholder={placeHolder}
+        required
+      />
+    </div>
+  );
 };
 
 export default FormInput;
