@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import db from "../utils/db";
 import { currentUser } from "@clerk/nextjs/server";
+import { productShema } from "./shemas";
 export const fetchFeaturedProducts = async () => {
   const products = await db.product.findMany({
     where: {
@@ -59,8 +60,9 @@ export const createProductAction = async (
   try {
     const user = await getAuthUser();
     const rawData = Object.fromEntries(formData);
+    const validatedField = productShema.parse(rawData);
+    console.log(validatedField);
 
-    console.log(rawData);
     return { message: "product created" };
   } catch (error) {
     return renderError(error);
