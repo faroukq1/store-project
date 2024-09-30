@@ -1,14 +1,6 @@
-import { z, ZodSchema } from "zod";
+import { Schema, z, ZodSchema } from "zod";
 
-// export const productShema = z.object({
-//   name: z.string().min(4),
-//   company: z.string().min(5),
-//   price: z.coerce.number().int().min(0),
-//   description: z.string(),
-//   featured: z.coerce.boolean(),
-// });
-
-export const productShema = z.object({
+export const productSchema = z.object({
   name: z
     .string()
     .min(2, {
@@ -33,3 +25,15 @@ export const productShema = z.object({
     }
   ),
 });
+
+export function validateWithZodSchema<T>(
+  schema: ZodSchema<T>,
+  data: unknown
+): T {
+  const result = schema.safeParse(data);
+  if (!result.success) {
+    const errors = result.error.errors.map((error) => error.message);
+    throw new Error(errors.join(" "));
+  }
+  return result.data;
+}
