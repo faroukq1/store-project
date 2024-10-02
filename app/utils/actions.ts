@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import db from "../utils/db";
 import { currentUser } from "@clerk/nextjs/server";
-import { productSchema, validateWithZodSchema } from "./shemas";
+import { imageSchema, productSchema, validateWithZodSchema } from "./shemas";
 export const fetchFeaturedProducts = async () => {
   const products = await db.product.findMany({
     where: {
@@ -56,10 +56,12 @@ export const createProductAction = async (
   prevState: any,
   formData: FormData
 ): Promise<{ message: string }> => {
+  const user = await getAuthUser();
   try {
-    const user = await getAuthUser();
+    const file = formData.get("image") as File;
     const rawData = Object.fromEntries(formData);
     const validatedField = validateWithZodSchema(productSchema, rawData);
+    const validateFile = validateWithZodSchema(imageSchema, { image: file });
     await db.product.create({
       data: {
         ...validatedField,
